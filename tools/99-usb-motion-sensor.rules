@@ -1,0 +1,5 @@
+# USB Motion Sensor (pid.codes test VID/PID 1209:0001)
+# - stable symlink /dev/imu
+# - world-readable so the host daemon does not need the dialout group
+# - keep ModemManager from probing the port with AT commands
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="0001", SYMLINK+="imu", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
